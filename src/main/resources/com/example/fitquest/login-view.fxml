@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+
+    <!-- TextField för användarnamn -->
+    <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn" />
+
+    <!-- PasswordField för lösenord -->
+    <PasswordField fx:id="passwordField" layoutX="120.0" layoutY="312.0" promptText="Lösenord" />
+
+    <!-- Inloggningsknapp -->
+    <Button layoutX="168.0" layoutY="403.0" onAction="#onLoginButtonClick" text="Logga in" />
+
+    <!-- Etikett för felmeddelanden -->
+    <Label fx:id="errorLabel" layoutX="100.0" layoutY="200.0" textFill="red" />
+</AnchorPane>

@@ -7,6 +7,6 @@ module com.example.fitquest {
     exports com.example.fitquest.Screen;
 
     // Om Screen är ett separat paket
-    opens com.example.fitquest.Screen to javafx.fxml;
-    exports com.example.fitquest;
+    exports com.example.fitquest.Controller;
+    opens com.example.fitquest.Controller to javafx.fxml;
 }

@@ -1,4 +1,4 @@
-package com.example.fitquest.screen;
+package com.example.fitquest;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

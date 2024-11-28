@@ -1,4 +1,4 @@
-package com.example.fitquest;
+package com.example.fitquest.screen;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

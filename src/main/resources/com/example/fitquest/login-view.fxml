@@ -2,18 +2,16 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
-<AnchorPane fx:id="LoginGridPane" prefHeight="650.0" prefWidth="400.0" stylesheets="/css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
 
-    <!-- TextField för användarnamn -->
-    <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn" />
+<StackPane fx:id="LoginStackPane" prefHeight="650.0" prefWidth="400.0" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+    <ImageView fx:id="backgroundImage" fitHeight="650.0" fitWidth="400.0" preserveRatio="false"/>
 
-    <!-- PasswordField för lösenord -->
-    <PasswordField fx:id="passwordField" layoutX="120.0" layoutY="312.0" promptText="Lösenord" />
-
-    <!-- Inloggningsknapp -->
-    <Button layoutX="168.0" layoutY="403.0" onAction="#onLoginButtonClick" text="Logga in" />
-
-    <!-- Etikett för felmeddelanden -->
-    <Label fx:id="errorLabel" layoutX="100.0" layoutY="200.0" textFill="red" />
-</AnchorPane>
+    <AnchorPane>
+        <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn 123" />
+        <PasswordField fx:id="passwordField" layoutX="120.0" layoutY="312.0" promptText="Lösenord" />
+        <Button layoutX="168.0" layoutY="403.0" onAction="#onLoginButtonClick" text="Logga in" />
+        <Label fx:id="errorLabel" layoutX="100.0" layoutY="200.0" textFill="red" />
+    </AnchorPane>
+</StackPane>

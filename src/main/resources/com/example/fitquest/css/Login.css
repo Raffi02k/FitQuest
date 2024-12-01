@@ -1,0 +1,6 @@
+#LoginGridPane {
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-image: url('@/images/bg2.jpg');
+    -fx-background-repeat: no-repeat;
+}

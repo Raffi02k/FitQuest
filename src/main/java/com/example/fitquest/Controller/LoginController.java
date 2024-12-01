@@ -6,10 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 public class LoginController {
+    public AnchorPane LoginGridPane;
     @FXML
     private TextField usernameField;
 
@@ -18,6 +23,21 @@ public class LoginController {
 
     @FXML
     private Label errorLabel;
+
+    @FXML
+    private ImageView backgroundImage;
+
+    @FXML
+    public void initialize() {
+        // Ladda bakgrundsbilden från resources
+        Image image = new Image(getClass().getResource("/com/example/fitquest/images/bg2.jpg").toExternalForm());
+        backgroundImage.setImage(image);  // Sätt bilden i ImageView
+
+        // Applicera GaussianBlur-effekten på bakgrunden
+        GaussianBlur blur = new GaussianBlur();
+        blur.setRadius(3.0);  // Justera suddigheten
+        backgroundImage.setEffect(blur);  // Applicera effekten på bakgrunden
+    }
 
     @FXML
     protected void onLoginButtonClick() {

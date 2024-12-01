@@ -10,7 +10,7 @@
     </padding>
 
     <!-- Titel -->
-    <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Welcome to FitQuest!" textFill="RED" />
+    <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Welcome to FitQuest!" textFill="#ebf58e" />
 
     <!-- Start Challenge-knappen -->
     <Button onAction="#onStartChallengeClick" prefWidth="200" text="Start Challenge" />

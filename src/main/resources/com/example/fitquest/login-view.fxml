@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+<AnchorPane fx:id="LoginGridPane" prefHeight="650.0" prefWidth="400.0" stylesheets="/css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
 
     <!-- TextField för användarnamn -->
     <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn" />

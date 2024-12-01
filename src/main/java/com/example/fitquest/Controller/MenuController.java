@@ -1,10 +1,10 @@
 package com.example.fitquest.Controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -34,9 +34,7 @@ public class MenuController {
         loadNewScene("/com/example/fitquest/login-view.fxml");
     }
 
-    /**
-     * Hjälpmetod för att byta skärm/scen.
-     */
+    // Hjälpmetod för att byta skärm/scen.
     private void loadNewScene(String fxmlPath) {
         try {
             Stage stage = (Stage) welcomeText.getScene().getWindow(); // Hämta nuvarande fönster

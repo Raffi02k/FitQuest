@@ -1,0 +1,7 @@
+#MenuGridPane{
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-image: url('../images/bg3.jpg');
+    -fx-background-repeat: no-repeat;
+
+}

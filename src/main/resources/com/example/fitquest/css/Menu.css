@@ -1,0 +1,6 @@
+#MenuGridPane{
+    -fx-background-size: 100% 100%;
+    -fx-background-image: url('../images/MenuB.png');
+    -fx-background-repeat: no-repeat;
+
+}

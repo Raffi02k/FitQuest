@@ -35,7 +35,7 @@ public class LoginController {
         2       DEMO2           DEMO3123213
          */
 
-        if (username.equals("admin") && password.equals("1")) {
+        if (username.equals("admin") && password.equals("admin")) {
             // Logga in och byt till meny-skärmen
             loadMenuScreen();
         } else {

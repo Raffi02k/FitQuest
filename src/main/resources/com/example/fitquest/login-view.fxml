@@ -7,13 +7,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane fx:id="LoginGridPane" prefHeight="650.0" prefWidth="400.0" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+<StackPane fx:id="LoginGridPane" prefHeight="650.0" prefWidth="400.0" stylesheets="@css/Login.css"
+           xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.fitquest.Controller.LoginController">
 
     <AnchorPane>
-        <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn" />
-        <PasswordField fx:id="passwordField" layoutX="120.0" layoutY="312.0" promptText="Lösenord" />
-        <Button layoutX="168.0" layoutY="403.0" onAction="#onLoginButtonClick" text="Logga in" />
-        <Label fx:id="errorLabel" style="-fx-font-size: 16px; -fx-font: bold"  layoutX="70.0" layoutY="340.0" textFill="red" />
+        <TextField fx:id="usernameField" layoutX="120.0" layoutY="267.0" promptText="Användarnamn"/>
+
+        <PasswordField fx:id="passwordField" layoutX="120.0" layoutY="312.0" promptText="Lösenord"/>
+
+        <Button layoutX="168.0" layoutY="403.0" onAction="#onLoginButtonClick" text="Logga in"/>
+
+        <Label fx:id="errorLabel" style="-fx-font-size: 16px; -fx-font: bold" layoutX="70.0" layoutY="340.0"
+               textFill="red"/>
     </AnchorPane>
 
 </StackPane>

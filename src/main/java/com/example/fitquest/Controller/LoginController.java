@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LoginController {
+public class    LoginController {
 
     @FXML
     private TextField usernameField;
@@ -51,7 +51,7 @@ public class LoginController {
 
             // Ladda menu-view.fxml
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/fitquest/menu-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 650);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
 
             // Byt scen
             stage.setScene(scene);

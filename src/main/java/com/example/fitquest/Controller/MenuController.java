@@ -15,9 +15,8 @@ public class MenuController {
 
     @FXML
     protected void onStartChallengeClick() {
-        System.out.println("Start Quest clicked!");
-        // Här kan du byta till Start Challenge-skärmen när den är redo
-        // loadNewScene("start-Quest-view.fxml");
+        // Här kommer du till start Daily Quest-skärmen
+        loadNewScene("/com/example/fitquest/quest-view.fxml");
     }
 
     @FXML

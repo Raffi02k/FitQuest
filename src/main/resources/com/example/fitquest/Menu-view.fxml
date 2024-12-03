@@ -13,6 +13,8 @@
     <!-- Start Challenge-knappen -->
     <Button onAction="#onStartChallengeClick" prefWidth="200" text="Start Challenge" />
     <!-- Leaderboard-knappen -->
+    <Button onAction="#myQuestClick" prefWidth="200" text="My Quest" />
+    <!-- Leaderboard-knappen -->
     <Button onAction="#onLeaderboardClick" prefWidth="200" text="Leaderboard" />
     <!-- Logga ut-knappen -->
     <Button onAction="#onLogoutClick" prefWidth="200" text="Logga ut" />

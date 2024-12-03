@@ -1,5 +1,6 @@
 package com.example.fitquest.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,12 @@ public class MenuController {
     protected void onStartChallengeClick() {
         // Här kommer du till start Daily Quest-skärmen
         loadNewScene("/com/example/fitquest/quest-view.fxml");
+    }
+
+    @FXML
+    protected void myQuestClick() {
+        // Här kommer du till start Daily Quest-skärmen
+        loadNewScene("/com/example/fitquest/myquest-view.fxml");
     }
 
     @FXML

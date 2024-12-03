@@ -1,5 +1,5 @@
-#QuestGridPane {
+#MyQuestGridPane {
     -fx-background-size: 100% 100%;
-    -fx-background-image: url('../images/QuestB.png');
+    -fx-background-image: url('../images/MyQuestB.png');
     -fx-background-repeat: no-repeat;
 }

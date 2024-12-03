@@ -2,7 +2,6 @@
 
 <?import javafx.scene.layout.*?>
 
-
 <StackPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
 
 </StackPane>

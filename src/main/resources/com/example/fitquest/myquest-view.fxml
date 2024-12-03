@@ -3,6 +3,6 @@
 <?import javafx.scene.layout.*?>
 
 
-<StackPane fx:id="MyQuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+<StackPane fx:id="MyQuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MenuController">
 
 </StackPane>

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<AnchorPane fx:id="MyQuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MyQuestController">
 
-<StackPane fx:id="MyQuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MenuController">
+    <Button fx:id="menuButton" layoutX="286.0" layoutY="696.0" onAction="#onMenuClick" prefWidth="100" text="Menu" AnchorPane.bottomAnchor="78.0" AnchorPane.rightAnchor="14.0" />
 
-</StackPane>
+    <CheckBox fx:id="checkMark1" layoutX="31.0" layoutY="280.0" text="1." />
+
+</AnchorPane>

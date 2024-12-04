@@ -11,6 +11,15 @@ public class Quest {
     private String name;
     private String description;
     private int score;
+    private Boolean completed = false;
+
+    public Boolean isCompleted(){
+        return completed;
+    }
+    public void setCompleted(Boolean completed){
+        this.completed = completed;
+    }
+
 
     public Quest(String name, String description, int score) {
         id = idCounter++;

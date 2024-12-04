@@ -67,8 +67,16 @@ public class MyQuestsModel {
      */
     public void processFinishedQuest(int selectedQuestIndex) {
         User currentUser = database.getCurrentUser();
-        int scoreToAdd = currentUser.getQuests().get(selectedQuestIndex).getScore();
-        currentUser.addPointsToScore(scoreToAdd);
-        userScore.set("MyScore: " + currentUser.getScore());
+        Quest selectedQuest = currentUser.getQuests().get(selectedQuestIndex);
+
+        if (!selectedQuest.isCompleted()) { // Kontrollera om questen redan är klar
+            int scoreToAdd = selectedQuest.getScore();
+            currentUser.addPointsToScore(scoreToAdd);
+            userScore.set("MyScore: " + currentUser.getScore());
+            selectedQuest.setCompleted(true); // Markera questen som klar
+        } else {
+            System.out.println("Quest is already completed!");
+        }
     }
+
 }

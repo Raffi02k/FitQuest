@@ -41,28 +41,10 @@ public class LoginController {
         String password = passwordField.getText();
 
         // Kollar om användaren finns i databasen och om lösenordet stämmer,
-        // i så fall, loadMenuScreen().
+        // i så fall, byt till menu-view().
         if(loginModel.checkUserCredentials(username, password)){
             NewScene newScene = NewScene.getInstance();
             newScene.loadNewScene("/com/example/fitquest/menu-view.fxml");
-            //loadMenuScreen();
-        }
-    }
-
-    // Metod för att ladda meny-skärmen.
-    private void loadMenuScreen() {
-        try {
-            // Hämta nuvarande fönster (Stage)
-            Stage stage = (Stage) usernameField.getScene().getWindow();
-
-            // Ladda menu-view.fxml
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/fitquest/menu-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
-
-            // Byt scen
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

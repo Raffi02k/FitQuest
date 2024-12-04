@@ -27,9 +27,8 @@ public class MenuController {
 
     @FXML
     protected void onLeaderboardClick() {
-        System.out.println("Leaderboard clicked!");
         // Här kan du byta till Leaderboard-skärmen
-        // loadNewScene("/com/example/fitquest/leaderboard-view.fxml");
+         loadNewScene("/com/example/fitquest/leaderboard-view.fxml");
     }
 
     @FXML

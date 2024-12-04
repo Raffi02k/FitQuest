@@ -21,8 +21,6 @@
         </graphic>
     </Button>
 
-    <CheckBox fx:id="checkMark" layoutX="31.0" layoutY="150.0" text="1." />
-
     <CheckBox fx:id="checkMark1" layoutX="31.0" layoutY="280.0" text="1." />
     <CheckBox fx:id="checkMark2" layoutX="31.0" layoutY="330.0" text="2." />
     <CheckBox fx:id="checkMark3" layoutX="31.0" layoutY="380.0" text="3." />

@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Font?>
 <AnchorPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.QuestController">
 
-    <Button fx:id="menuButton" layoutX="286.0" layoutY="696.0" onAction="#onMenuClick" prefWidth="100" text="Menu" AnchorPane.bottomAnchor="78.0" AnchorPane.rightAnchor="14.0" />
+
+    <Button fx:id="menuButton" layoutX="20.0" layoutY="30.0" onAction="#onMenuClick" mnemonicParsing="true">
+        <font>
+            <Font size="30.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@images/homeButton.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
     <CheckBox fx:id="checkMark" layoutX="31.0" layoutY="150.0" text="1." />
 

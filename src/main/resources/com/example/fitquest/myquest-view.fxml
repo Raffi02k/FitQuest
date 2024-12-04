@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<StackPane fx:id="MyQuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MenuController">
-
-</StackPane>
+<VBox id="MyQuestGridPane" alignment="BOTTOM_CENTER" prefHeight="800.0" prefWidth="400.0" spacing="20.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MyQuestsController">
+   <Label fx:id="myQuestsUserScore"/>
+   <Button onMouseClicked="#myQuestsFinishButtonClicked" mnemonicParsing="false" text="Quest finished" />
+      <ListView fx:id="myQuestsList" maxHeight="300.0" maxWidth="300.0" onMouseReleased="#myQuestsListClicked" prefHeight="300.0" prefWidth="300.0" />
+   <TextArea fx:id="myQuestsDescriptionTextArea" maxHeight="100.0" maxWidth="300.0" prefHeight="100.0" prefWidth="300.0" />
+</VBox>

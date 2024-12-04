@@ -1,5 +1,6 @@
 package com.example.fitquest.Controller;
 
+import com.example.fitquest.Model.LoginModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,36 +11,33 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class    LoginController {
+public class LoginController {
 
+    private LoginModel loginModel;
     @FXML
     private TextField usernameField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Label errorLabel;
 
-    @FXML
-    protected void onLoginButtonClick() {
+    public void initialize() {
+        loginModel = new LoginModel();
+        // Binder errorLabel till loginModel:s errorMessage vilket gör
+        // att ändringar som görs på fältet errorMessage i LoginModel
+        // även påverkar errorLabel (text som sätts på errorMessage i LoginModel kommer synas i errorLabel)
+        errorLabel.textProperty().bind(loginModel.errorMessageProperty());
+    }
+
+    public void onLoginButtonClick() {
 
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // SELECT * FROM USERS WHERE username = username AND password = password
-
-        /*
-        ID      USERNAME        PASSWORD
-        1       DEMO1           DEMO123
-        2       DEMO2           DEMO3123213
-         */
-
-        if (username.equals("admin") && password.equals("admin")) {
-            // Logga in och byt till meny-skärmen
+        // Kollar om användaren finns i databasen och om lösenordet stämmer,
+        // i så fall, loadMenuScreen().
+        if(loginModel.checkUserCredentials(username, password)){
             loadMenuScreen();
-        } else {
-            errorLabel.setText("Felaktigt användarnamn eller lösenord!");
         }
     }
 
@@ -51,7 +49,7 @@ public class    LoginController {
 
             // Ladda menu-view.fxml
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/fitquest/menu-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
 
             // Byt scen
             stage.setScene(scene);

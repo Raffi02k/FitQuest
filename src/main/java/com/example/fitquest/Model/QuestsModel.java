@@ -1,4 +1,4 @@
 package com.example.fitquest.Model;
 
-public class MyQuest {
+public class QuestsModel {
 }

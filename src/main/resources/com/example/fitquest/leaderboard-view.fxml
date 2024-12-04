@@ -24,11 +24,11 @@
 
     <!-- Leaderboard Entries -->
     <VBox alignment="TOP_CENTER" spacing="10.0">
-        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="1. Alice - 550" textFill="#d7c010" translateY="-300.0" />
-        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="2. Bob - 440" translateY="-300.0" />
-        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="3. Charlie - 420" translateY="-300.0" />
-        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="4. Diana - 200" translateY="-300.0" />
-        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="5. Edward - 170" translateY="-300.0" />
+        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="1. Myron Champ - 550" textFill="#d7c010" translateY="-300.0" />
+        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="2. Huge Dik - 440" translateY="-300.0" />
+        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="3. Sam Sung - 420" translateY="-300.0" />
+        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="4. Juan Direction - 200" translateY="-300.0" />
+        <Label style="-fx-font-size: 24px;-fx-font-weight: bold; -fx-font-family: 'Andale Mono';" text="5. Hugh Mungus - 170" translateY="-300.0" />
     </VBox>
 
     <!-- User Score Display -->

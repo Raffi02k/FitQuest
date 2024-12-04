@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
 <AnchorPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.QuestController">
 
 
-    <Button fx:id="menuButton" layoutX="20.0" layoutY="30.0" onAction="#onMenuClick" mnemonicParsing="true">
+    <Button fx:id="menuButton" layoutX="20.0" layoutY="30.0" mnemonicParsing="true" onAction="#onMenuClick" translateX="310.0" translateY="-10.0">
         <font>
             <Font size="30.0" />
         </font>

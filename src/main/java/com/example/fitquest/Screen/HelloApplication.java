@@ -10,7 +10,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/fitquest/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 800);
-        stage.setTitle("FitQuest");
+        stage.setTitle("Login Screen");
         stage.setScene(scene);
         stage.show();
     }

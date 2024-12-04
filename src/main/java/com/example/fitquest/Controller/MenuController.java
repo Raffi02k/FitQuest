@@ -15,7 +15,7 @@ public class MenuController {
 
     @FXML
     protected void onStartChallengeClick() {
-        // Här kommer du till start Daily Quest-skärmen
+        // Här kommer du till alla Quests-skärmen
         loadNewScene("/com/example/fitquest/quest-view.fxml");
     }
 
@@ -43,7 +43,7 @@ public class MenuController {
         try {
             Stage stage = (Stage) welcomeText.getScene().getWindow(); // Hämta nuvarande fönster
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="LoginGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+<StackPane fx:id="LoginGridPane" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
 
     <AnchorPane>
         <TextField fx:id="usernameField" layoutX="116.0" layoutY="493.0" promptText="Användarnamn" />
@@ -12,7 +12,7 @@
 
         <Button layoutX="158.0" layoutY="596.0" onAction="#onLoginButtonClick" text="Logga in" />
 
-        <Label fx:id="errorLabel" layoutX="70.0" layoutY="457.0" prefHeight="20.0" prefWidth="281.0" style="-fx-font-size: 16px; -fx-font: bold" textFill="red" />
+        <Label fx:id="errorLabel" layoutX="70.0" layoutY="457.0"/>
     </AnchorPane>
 
 </StackPane>

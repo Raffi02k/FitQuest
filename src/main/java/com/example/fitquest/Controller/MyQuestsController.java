@@ -1,6 +1,7 @@
 package com.example.fitquest.Controller;
 
 import com.example.fitquest.Model.MyQuestsModel;
+import com.example.fitquest.Screen.NewScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,8 +28,8 @@ public class MyQuestsController {
 
     @FXML
     public void onMenuClick(){
-        loadNewScene("/com/example/fitquest/Menu-view.fxml");
-
+        NewScene.getInstance().loadNewScene("/com/example/fitquest/Menu-view.fxml");
+//        loadNewScene("/com/example/fitquest/Menu-view.fxml");
     }
 
     private void loadNewScene(String fxmlPath) {

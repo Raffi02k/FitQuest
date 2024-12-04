@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
+
+    public static Stage currentStage;
+
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/fitquest/login-view.fxml"));
@@ -13,6 +16,7 @@ public class HelloApplication extends Application {
         stage.setTitle("Login Screen");
         stage.setScene(scene);
         stage.show();
+        currentStage = stage;
     }
 
     public static void main(String[] args) {

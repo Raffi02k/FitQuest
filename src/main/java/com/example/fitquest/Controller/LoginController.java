@@ -1,6 +1,7 @@
 package com.example.fitquest.Controller;
 
 import com.example.fitquest.Model.LoginModel;
+import com.example.fitquest.Screen.NewScene;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -30,6 +31,10 @@ public class LoginController {
         errorLabel.textProperty().bind(loginModel.errorMessageProperty());
     }
 
+    public TextField getUsernameField() {
+        return usernameField;
+    }
+
     public void onLoginButtonClick() {
 
         String username = usernameField.getText();
@@ -38,7 +43,9 @@ public class LoginController {
         // Kollar om användaren finns i databasen och om lösenordet stämmer,
         // i så fall, loadMenuScreen().
         if(loginModel.checkUserCredentials(username, password)){
-            loadMenuScreen();
+            NewScene newScene = NewScene.getInstance();
+            newScene.loadNewScene("/com/example/fitquest/menu-view.fxml");
+            //loadMenuScreen();
         }
     }
 

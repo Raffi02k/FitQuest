@@ -48,12 +48,13 @@ public class MyQuestsController {
      * Binder TextArea till myQuestsModel StringProperty questDescription (om questDescription ändras så gör även myQuestsDescriptionTextArea det)
      */
     public void initialize() {
-        myQuestsModel = new MyQuestsModel();
+        myQuestsModel = MyQuestsModel.getInstance(); // Hämta singleton-instansen
         myQuestsList.getItems().addAll(myQuestsModel.getUserQuestsNames());
-        myQuestsList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); // Försök sätta denna i FXML:en (att man endast kan markera 1 quest i listan)
+        myQuestsList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE); // Försök sätta denna i FXML:en
         myQuestsDescriptionTextArea.textProperty().bind(myQuestsModel.questDescriptionProperty());
         myQuestsUserScore.textProperty().bind(myQuestsModel.userScoreProperty());
     }
+
 
     /**
      * Triggas när användaren klickar på någon av questen i listan.

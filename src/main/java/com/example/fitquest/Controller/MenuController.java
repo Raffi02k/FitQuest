@@ -43,7 +43,7 @@ public class MenuController {
         try {
             Stage stage = (Stage) welcomeText.getScene().getWindow(); // Hämta nuvarande fönster
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

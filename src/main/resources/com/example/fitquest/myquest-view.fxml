@@ -7,12 +7,12 @@
 
 <VBox fx:id="MyQuestGridPane" alignment="BOTTOM_CENTER" prefHeight="800.0" prefWidth="400.0" spacing="20.0" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MyQuestsController">
 
-   <Button fx:id="menuButton" layoutX="5.0" layoutY="5.0" mnemonicParsing="true" onAction="#onMenuClick" translateX="160.0" translateY="-100.0">
+   <Button fx:id="menuButton" layoutX="5.0" layoutY="5.0" mnemonicParsing="true" onAction="#onMenuClick" translateX="160.0" translateY="-190.0">
       <font>
          <Font size="30.0" />
       </font>
       <graphic>
-         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
             <image>
                <Image url="@images/homeButton.png" />
             </image>

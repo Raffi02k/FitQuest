@@ -10,27 +10,35 @@ import javafx.collections.ObservableList;
 
 public class MyQuestsModel {
 
-    private FQDatabase database;
-    private ObservableList<String> userQuestsNames = FXCollections.observableArrayList();
-    private StringProperty questDescription = new SimpleStringProperty("");
-    private StringProperty userScore = new SimpleStringProperty("");
+    private static MyQuestsModel instance; // Singleton-instans
+    private final FQDatabase database;
+    private final ObservableList<String> userQuestsNames = FXCollections.observableArrayList();
+    private final StringProperty questDescription = new SimpleStringProperty("");
+    private final StringProperty userScore = new SimpleStringProperty("");
 
     /**
-     * Initierar instansen till database.
-     * Hämtar nuvarande användare samt dennes quests och lägger till dem i en ObservableList,
-     * vilken är bunden till en ListView i MyQuestsController (ändringar som görs i denna ObservableList ska synas i ListView).
+     * Privat konstruktor för att säkerställa att endast en instans kan skapas.
      */
-    public MyQuestsModel() {
+    private MyQuestsModel() {
         database = FQDatabase.getInstance();
         User currentUser = database.getCurrentUser();
 
-        // dessa 3 rader endast testkod för att se om myQuestsList fungerar
-        currentUser.addQuest(new Quest("MyQuest1", "MyQuest1 Description", 100));
-        currentUser.addQuest(new Quest("MyQuest2", "MyQuest2 Description", 200));
-        currentUser.addQuest(new Quest("MyQuest3", "MyQuest3 Description", 300));
-
+        // Testkod - endast körs vid första initiering
+        currentUser.addQuest(new Quest("Quest1", "MyQuest1 Description", 100));
+        currentUser.addQuest(new Quest("Quest2", "MyQuest2 Description", 200));
+        currentUser.addQuest(new Quest("Quest3", "MyQuest3 Description", 300));
 
         userQuestsNames.addAll(currentUser.getQuests().stream().map(Quest::getName).toList());
+    }
+
+    /**
+     * Getter för singleton-instansen. Skapar instansen om den inte redan finns.
+     */
+    public static synchronized MyQuestsModel getInstance() {
+        if (instance == null) {
+            instance = new MyQuestsModel();
+        }
+        return instance;
     }
 
     public ObservableList<String> getUserQuestsNames() {
@@ -49,6 +57,9 @@ public class MyQuestsModel {
         return userScore;
     }
 
+    /**
+     * Hanterar avslutade uppdrag, uppdaterar poängen och UI-bindningen.
+     */
     public void processFinishedQuest(int selectedQuestIndex) {
         User currentUser = database.getCurrentUser();
         int scoreToAdd = currentUser.getQuests().get(selectedQuestIndex).getScore();

@@ -1,5 +1,6 @@
 package com.example.fitquest.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,5 +28,8 @@ public class QuestController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addToMyQuestsButtonClicked(ActionEvent actionEvent) {
     }
 }

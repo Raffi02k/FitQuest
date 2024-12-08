@@ -3,30 +3,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="400.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.QuestController">
+<AnchorPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="398.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.QuestController">
+    <children>
+        <ListView fx:id="questsList1" layoutX="28.0" layoutY="233.0" prefHeight="304.0" prefWidth="345.0" />
+        <ListView fx:id="questsList" layoutX="58.0" layoutY="138.0" prefHeight="44.0" prefWidth="282.0" />
 
-
-    <Button fx:id="menuButton" layoutX="20.0" layoutY="30.0" mnemonicParsing="true" onAction="#onMenuClick" translateX="310.0" translateY="-10.0">
-        <font>
-            <Font size="30.0" />
-        </font>
-        <graphic>
-            <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                <image>
-                    <Image url="@images/homeButton.png" />
-                </image>
-            </ImageView>
-        </graphic>
-    </Button>
-
-    <CheckBox fx:id="checkMark1" layoutX="31.0" layoutY="280.0" text="1." />
-    <CheckBox fx:id="checkMark2" layoutX="31.0" layoutY="330.0" text="2." />
-    <CheckBox fx:id="checkMark3" layoutX="31.0" layoutY="380.0" text="3." />
-    <CheckBox fx:id="checkMark4" layoutX="31.0" layoutY="430.0" text="4." />
-    <CheckBox fx:id="checkMark5" layoutX="31.0" layoutY="480.0" text="5." />
+        <Button accessibleRole="MENU_BUTTON" layoutX="147.0" layoutY="675.0" mnemonicParsing="false" onAction="#onMenuClick" prefHeight="58.0" prefWidth="95.0">
+            <graphic>
+                <ImageView fitHeight="86.0" fitWidth="83.0">
+                    <image>
+                        <Image url="@images/homeButton.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
 
 
+        <Button layoutX="151.0" layoutY="575.0" mnemonicParsing="false" onAction="#addToMyQuestsButtonClicked" text="Take quest" textFill="#b40003"/>
+    </children>
 
 </AnchorPane>

@@ -32,6 +32,11 @@ public class FQDatabase {
         }
         return database;
     }
+    public void resetCurrentUser() {
+        if (currentUser != null) {
+            currentUser.reset();
+        }
+    }
 
     public User getCurrentUser() {
         return currentUser;

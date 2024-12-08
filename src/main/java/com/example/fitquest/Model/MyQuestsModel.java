@@ -10,11 +10,16 @@ import javafx.collections.ObservableList;
 
 public class MyQuestsModel {
 
-    private static MyQuestsModel instance; // Singleton-instans
+    private static MyQuestsModel instance;
     private final FQDatabase database;
     private final ObservableList<String> userQuestsNames = FXCollections.observableArrayList();
     private final StringProperty questDescription = new SimpleStringProperty("");
     private final StringProperty userScore = new SimpleStringProperty("");
+
+
+    public void setUserScore(int score) {
+        this.userScore.set("MyScore: " + score);
+    }
 
     /**
      * Privat konstruktor för att säkerställa att endast en instans kan skapas.

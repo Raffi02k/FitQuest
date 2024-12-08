@@ -1,5 +1,9 @@
+
 package com.example.fitquest.Controller;
 
+import com.example.fitquest.Model.Data.FQDatabase;
+import com.example.fitquest.Model.MyQuestsModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class QuestController {
+
     @FXML
     private AnchorPane QuestGridPane;
 
@@ -27,5 +32,8 @@ public class QuestController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addToMyQuestsButtonClicked(ActionEvent actionEvent) {
     }
 }

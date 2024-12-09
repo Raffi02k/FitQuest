@@ -22,5 +22,4 @@
 
         <Button layoutX="151.0" layoutY="575.0" mnemonicParsing="false" onAction="#addToMyQuestsButtonClicked" text="Take quest" textFill="#b40003"/>
     </children>
-
 </AnchorPane>

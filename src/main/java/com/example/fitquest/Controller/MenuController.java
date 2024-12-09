@@ -3,7 +3,9 @@ package com.example.fitquest.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class MenuController {
         // Här kommer du till alla Quests-skärmen
         loadNewScene("/com/example/fitquest/quest-view.fxml");
     }
+
 
     @FXML
     protected void myQuestClick() {
@@ -48,4 +51,8 @@ public class MenuController {
             e.printStackTrace();
         }
     }
+
+
+
+
 }

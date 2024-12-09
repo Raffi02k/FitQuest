@@ -1,4 +1,6 @@
+
 package com.example.fitquest.Controller;
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,8 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class QuestController {
-    public ListView uniqueQuestsList;
-    public ListView questsList;
     @FXML
     private AnchorPane QuestGridPane;
 

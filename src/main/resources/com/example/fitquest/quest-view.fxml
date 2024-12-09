@@ -6,10 +6,9 @@
 
 <AnchorPane fx:id="QuestGridPane" prefHeight="800.0" prefWidth="398.0" stylesheets="@css/Challeng.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.QuestController">
     <children>
-        <ListView fx:id="questsList1" layoutX="28.0" layoutY="233.0" prefHeight="304.0" prefWidth="345.0" />
+        <ListView fx:id="uniqueQuestsList" layoutX="28.0" layoutY="233.0" prefHeight="304.0" prefWidth="345.0" />
         <ListView fx:id="questsList" layoutX="58.0" layoutY="138.0" prefHeight="44.0" prefWidth="282.0" />
-
-        <Button accessibleRole="MENU_BUTTON" layoutX="147.0" layoutY="675.0" mnemonicParsing="false" onAction="#onMenuClick" prefHeight="58.0" prefWidth="95.0">
+        <Button accessibleRole="MENU_BUTTON" layoutX="147.0" layoutY="673.0" mnemonicParsing="false" onAction="#onMenuClick" prefHeight="58.0" prefWidth="95.0">
             <graphic>
                 <ImageView fitHeight="86.0" fitWidth="83.0">
                     <image>
@@ -20,6 +19,6 @@
         </Button>
 
 
-        <Button layoutX="151.0" layoutY="575.0" mnemonicParsing="false" onAction="#addToMyQuestsButtonClicked" text="Take quest" textFill="#b40003"/>
+        <Button layoutX="151.0" layoutY="575.0" mnemonicParsing="false" onAction="#addToMyQuestsButtonClicked" text="Take quest" translateX="8.0" translateY="30.0" />
     </children>
 </AnchorPane>

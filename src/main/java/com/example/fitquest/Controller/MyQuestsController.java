@@ -5,16 +5,16 @@ import com.example.fitquest.Model.MyQuestsModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class MyQuestsController {
-
 
     private MyQuestsModel myQuestsModel;
     @FXML
@@ -57,7 +57,6 @@ public class MyQuestsController {
         myQuestsUserScore.textProperty().bind(myQuestsModel.userScoreProperty());
     }
 
-
     /**
      * Triggas när användaren klickar på någon av questen i listan.
      * Hämtar den markerade questens index i listan.
@@ -68,7 +67,6 @@ public class MyQuestsController {
         int selectedIndex = myQuestsList.getSelectionModel().getSelectedIndex();
         myQuestsModel.setQuestDescription(selectedIndex);
     }
-
     public void myQuestsFinishButtonClicked() {
         int selectedIndex = myQuestsList.getSelectionModel().getSelectedIndex();
         myQuestsModel.processFinishedQuest(selectedIndex);

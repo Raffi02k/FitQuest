@@ -20,7 +20,7 @@ public class MyQuestsController {
 
     public void initialize() {
         myQuestsModel = MyQuestsModel.getInstance(); // Hämta singleton-instansen
-        myQuestsList.getItems().addAll(myQuestsModel.getUserQuestsNames());
+        myQuestsList.getItems().addAll(myQuestsModel.getMyQuestsNameObservableList());
         myQuestsDescriptionTextArea.textProperty().bind(myQuestsModel.questDescriptionProperty());
         myQuestsUserScore.textProperty().bind(myQuestsModel.userScoreProperty());
     }

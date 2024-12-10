@@ -9,13 +9,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
-import java.util.List;
-
 public class MyQuestsModel {
 
     private static MyQuestsModel instance;
     private final FQDatabase database;
-    private final ObservableList<String> userQuestsNames = FXCollections.observableArrayList();
+    private final ObservableList<String> myQuestsNameObservableList = FXCollections.observableArrayList();
     private final StringProperty questDescription = new SimpleStringProperty("");
     private final StringProperty userScore = new SimpleStringProperty("");
 
@@ -32,8 +30,8 @@ public class MyQuestsModel {
     }
 
     public void addQuest(Quest quest) {
-        if (!userQuestsNames.contains(quest.getName())) {
-            userQuestsNames.add(quest.getName());  // Lägg till quest namnet
+        if (!myQuestsNameObservableList.contains(quest.getName())) {
+            myQuestsNameObservableList.add(quest.getName());  // Lägg till quest namnet
             database.getCurrentUser().addQuest(quest);
             // Kanske någon refresh?
         }
@@ -49,8 +47,8 @@ public class MyQuestsModel {
         return instance;
     }
 
-    public ObservableList<String> getUserQuestsNames() {
-        return userQuestsNames;
+    public ObservableList<String> getMyQuestsNameObservableList() {
+        return myQuestsNameObservableList;
     }
 
     public StringProperty questDescriptionProperty() {
@@ -89,6 +87,10 @@ public class MyQuestsModel {
             alert.setContentText("This quest has already been completed.");
             alert.showAndWait();
         }
+    }
+
+    public void refreshMyQuestsNameObservableList(){
+        myQuestsNameObservableList.setAll(database.getCurrentUser().getQuests().stream().map(Quest::getName).toList());
     }
 
 }

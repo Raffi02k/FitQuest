@@ -1,62 +1,48 @@
-
 package com.example.fitquest.Controller;
 
-import com.example.fitquest.Model.Data.FQDatabase;
-import com.example.fitquest.Model.Data.Quest;
-import com.example.fitquest.Model.MyQuestsModel;
 import com.example.fitquest.Model.QuestsModel;
 import com.example.fitquest.Screen.NewScene;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
 
 public class QuestController {
 
+    private final QuestsModel questsModel = QuestsModel.getInstance();
     @FXML
-    private ListView<String> questsList;
+    private ListView<String> allQuestsNameListView;
 
-    private final FQDatabase database = FQDatabase.getInstance();
-    private final MyQuestsModel myQuestsModel = MyQuestsModel.getInstance();
-
-    @FXML
     public void initialize() {
-        // Lägg till alla quests from QuestModel
-        questsList.getItems().addAll(
-                QuestsModel.getInstance().getAllQuests().stream().map(Quest::getName).toList()
-        );
-        questsList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        allQuestsNameListView.setItems(questsModel.getAllQuestsNameObservableList());
     }
 
-    @FXML
-    public void onMenuClick() {
-        NewScene.getInstance().loadNewScene("/com/example/fitquest/Menu-view.fxml");
-    }
+    public void addToMyQuestsButtonClicked() {
 
-    @FXML
-    public void addToMyQuestsButtonClicked(ActionEvent actionEvent) {
-        int selectedIndex = questsList.getSelectionModel().getSelectedIndex();
-        if (selectedIndex != -1) {
-            Quest selectedQuest = QuestsModel.getInstance().getAllQuests().get(selectedIndex);
+        int selectedListIndex = allQuestsNameListView.getSelectionModel().getSelectedIndex();
+        String selectedListName = allQuestsNameListView.getSelectionModel().getSelectedItem();
 
-            MyQuestsModel.getInstance().addQuest(selectedQuest);
-            System.out.println("Quest added to My Quests: " + selectedQuest.getName());
+        if (selectedListIndex != -1) {
+            // Låt modellen addera questen till användarens questLista och uppdatera MyQuestsModel.
+            questsModel.addQuestToUsersQuestsList(selectedListName);
 
-            // Ta bort questen när man har valt den
-            QuestsModel.getInstance().getAllQuests().remove(selectedIndex);
-            questsList.getItems().remove(selectedIndex);
+            // Låt modellen radera quest namnet från sin allQuestsNameObservableList
+            // (ska då automatiskt uppdatera allQuestsNameListView i denna klass som styr vad som visas för användaren)
+            questsModel.removeQuestNameFromAllQuestsNameObservableList(selectedListIndex);
 
-            questsList.refresh();
+//            allQuestsNameListView.refresh();
 
             // Visa en alert att den har blivit tillagd i myquest
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Quest Added");
             alert.setHeaderText(null);
-            alert.setContentText("The quest " + selectedQuest.getName() + " has been added to your quests!");
+            alert.setContentText("The quest " + selectedListName + " has been added to your quests!");
             alert.showAndWait(); // Show the alert and wait for the user to close it
         } else {
             System.out.println("No quest selected!");
         }
+    }
+
+    public void onMenuClick() {
+        NewScene.getInstance().loadNewScene("/com/example/fitquest/Menu-view.fxml");
     }
 }

@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 import java.util.List;
 
@@ -80,7 +81,12 @@ public class MyQuestsModel {
             //currentUser.removeQuest(selectedQuest);
            // userQuestsNames.remove(selectedQuestIndex);
         } else {
-            System.out.println("Quest is already completed!");
+            // Show an alert if the quest is already completed
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Quest Already Completed");
+            alert.setHeaderText(null);
+            alert.setContentText("This quest has already been completed.");
+            alert.showAndWait();
         }
     }
 

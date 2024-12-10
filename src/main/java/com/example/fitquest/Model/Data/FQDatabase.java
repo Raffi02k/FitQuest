@@ -32,11 +32,7 @@ public class FQDatabase {
         }
         return database;
     }
-    public void resetCurrentUser() {
-        if (currentUser != null) {
-            currentUser.reset();
-        }
-    }
+
 
     public User getCurrentUser() {
         return currentUser;
@@ -85,4 +81,10 @@ public class FQDatabase {
     public Quest getQuest(int index){
         return quests.get(index);
     }
+    public void resetCurrentUser() {
+        if (currentUser != null) {
+            currentUser.reset();
+        }
+    }
+
 }

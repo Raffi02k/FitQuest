@@ -17,6 +17,9 @@ public class FQDatabase {
         // Lägger till en user i databasen
         users.add(new User("admin", "admin"));
         users.add(new User("user", "user"));
+        users.add(new User("a", "a"));
+
+
         // Lägger till några quests i databasen
         quests.add(new Quest("Quest1", "Quest1 description", 100));
         quests.add(new Quest("Quest2", "Quest2 description", 200));
@@ -28,6 +31,11 @@ public class FQDatabase {
             database = new FQDatabase();
         }
         return database;
+    }
+    public void resetCurrentUser() {
+        if (currentUser != null) {
+            currentUser.reset();
+        }
     }
 
     public User getCurrentUser() {

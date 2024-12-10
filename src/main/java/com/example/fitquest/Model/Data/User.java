@@ -26,6 +26,7 @@ public class User {
         quests = new ArrayList<>();
     }
 
+
     public int getId() {
         return id;
     }
@@ -92,5 +93,9 @@ public class User {
 
     public void addPointsToScore(int pointsToAdd) {
         score = score + pointsToAdd;
+    }
+
+    public void reset() {
+        this.score = 0;
     }
 }

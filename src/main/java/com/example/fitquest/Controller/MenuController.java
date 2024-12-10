@@ -3,7 +3,9 @@ package com.example.fitquest.Controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +21,7 @@ public class MenuController {
         loadNewScene("/com/example/fitquest/quest-view.fxml");
     }
 
+
     @FXML
     protected void myQuestClick() {
         // Här kommer du till start Daily Quest-skärmen
@@ -27,9 +30,8 @@ public class MenuController {
 
     @FXML
     protected void onLeaderboardClick() {
-        System.out.println("Leaderboard clicked!");
         // Här kan du byta till Leaderboard-skärmen
-        // loadNewScene("/com/example/fitquest/leaderboard-view.fxml");
+         loadNewScene("/com/example/fitquest/leaderboard-view.fxml");
     }
 
     @FXML
@@ -43,10 +45,14 @@ public class MenuController {
         try {
             Stage stage = (Stage) welcomeText.getScene().getWindow(); // Hämta nuvarande fönster
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
+
+
 }

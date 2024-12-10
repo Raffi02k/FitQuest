@@ -19,26 +19,15 @@ public class LoginController {
 
     public void initialize() {
         loginModel = new LoginModel();
-        // Binder errorLabel till loginModel:s errorMessage vilket gör
-        // att ändringar som görs på fältet errorMessage i LoginModel
-        // även påverkar errorLabel (text som sätts på errorMessage i LoginModel kommer synas i errorLabel)
         errorLabel.textProperty().bind(loginModel.errorMessageProperty());
     }
 
-    public TextField getUsernameField() {
-        return usernameField;
-    }
-
     public void onLoginButtonClick() {
-
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        // Kollar om användaren finns i databasen och om lösenordet stämmer,
-        // i så fall, byt till menu-view().
         if(loginModel.checkUserCredentials(username, password)){
-            NewScene newScene = NewScene.getInstance();
-            newScene.loadNewScene("/com/example/fitquest/menu-view.fxml");
+            NewScene.getInstance().loadNewScene("/com/example/fitquest/menu-view.fxml");
         }
     }
 }

@@ -5,17 +5,12 @@ import com.example.fitquest.Model.Data.FQDatabase;
 import com.example.fitquest.Model.Data.Quest;
 import com.example.fitquest.Model.MyQuestsModel;
 import com.example.fitquest.Model.QuestsModel;
+import com.example.fitquest.Screen.NewScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class QuestController {
 
@@ -24,9 +19,6 @@ public class QuestController {
 
     private final FQDatabase database = FQDatabase.getInstance();
     private final MyQuestsModel myQuestsModel = MyQuestsModel.getInstance();
-
-    @FXML
-    private AnchorPane QuestGridPane;
 
     @FXML
     public void initialize() {
@@ -39,18 +31,7 @@ public class QuestController {
 
     @FXML
     public void onMenuClick() {
-        loadNewScene("/com/example/fitquest/Menu-view.fxml");
-    }
-
-    private void loadNewScene(String fxmlPath) {
-        try {
-            Stage stage = (Stage) QuestGridPane.getScene().getWindow(); // Hämta nuvarande fönster
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 800);
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        NewScene.getInstance().loadNewScene("/com/example/fitquest/Menu-view.fxml");
     }
 
     @FXML

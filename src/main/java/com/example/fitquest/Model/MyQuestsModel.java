@@ -78,6 +78,7 @@ public class MyQuestsModel {
             currentUser.addPointsToScore(scoreToAdd);
             userScore.set("MyScore: " + currentUser.getScore());
             selectedQuest.setCompleted(true); // Markera questen som klar
+            //Lägg till detta nedanför om ni vill att questen ska försvinna när ni finishar den.
             //currentUser.removeQuest(selectedQuest);
            // userQuestsNames.remove(selectedQuestIndex);
         } else {

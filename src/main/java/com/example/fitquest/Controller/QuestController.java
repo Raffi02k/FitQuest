@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.AnchorPane;
@@ -59,7 +60,16 @@ public class QuestController {
             Quest selectedQuest = QuestsModel.getInstance().getAllQuests().get(selectedIndex);
             MyQuestsModel.getInstance().addQuest(selectedQuest);
             System.out.println("Quest added to My Quests: " + selectedQuest.getName());
-            System.out.println(questsList.getSelectionModel().getSelectedItem());
+            // Ta bort questen när man har valt den
+            questsList.getItems().remove(selectedIndex);
+            questsList.refresh();
+
+            // Visa en alert att den har blivit tillagd i myquest
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Quest Added");
+            alert.setHeaderText(null);
+            alert.setContentText("The quest " + selectedQuest.getName() + " has been added to your quests!");
+            alert.showAndWait(); // Show the alert and wait for the user to close it
         } else {
             System.out.println("No quest selected!");
         }

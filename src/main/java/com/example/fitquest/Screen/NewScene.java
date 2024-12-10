@@ -23,7 +23,7 @@ public class NewScene {
         try {
             Stage stage = HelloApplication.currentStage;
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
-            Scene scene = new Scene(fxmlLoader.load(), 400, 700);
+            Scene scene = new Scene(fxmlLoader.load(), 400, 600);
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();

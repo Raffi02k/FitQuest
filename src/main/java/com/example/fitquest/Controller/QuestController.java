@@ -58,10 +58,14 @@ public class QuestController {
         int selectedIndex = questsList.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
             Quest selectedQuest = QuestsModel.getInstance().getAllQuests().get(selectedIndex);
+
             MyQuestsModel.getInstance().addQuest(selectedQuest);
             System.out.println("Quest added to My Quests: " + selectedQuest.getName());
+
             // Ta bort questen när man har valt den
+            QuestsModel.getInstance().getAllQuests().remove(selectedIndex);
             questsList.getItems().remove(selectedIndex);
+
             questsList.refresh();
 
             // Visa en alert att den har blivit tillagd i myquest

@@ -4,18 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="MenuGridPane" prefHeight="800" prefWidth="400.0" alignment="CENTER" spacing="20.0" stylesheets="@css/Menu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MenuController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-    <!-- Titel -->
-    <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-font-family: 'Arial';" text="Welcome to FitQuest!" textFill="#f75c28" />
-    <!-- Start Challenge-knappen -->
-    <Button onAction="#onStartChallengeClick" prefWidth="200" text="Start Challenge" />
-    <!-- Leaderboard-knappen -->
-    <Button onAction="#myQuestClick" prefWidth="200" text="My Quest" />
-    <!-- Leaderboard-knappen -->
-    <Button onAction="#onLeaderboardClick" prefWidth="200" text="Leaderboard" />
-    <!-- Logga ut-knappen -->
-    <Button onAction="#onLogoutClick" prefWidth="200" text="Logga ut" />
-</VBox>
+<BorderPane fx:id="MenuGridPane" stylesheets="@css/Menu.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MenuController">
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
+            <!-- Titel -->
+            <Label fx:id="welcomeText" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-font-family: 'Arial';" text="Welcome to FitQuest!" textAlignment="CENTER" textFill="#f75c28" />
+            <!-- Start Challenge-knappen -->
+            <Button onAction="#onStartChallengeClick" prefWidth="200" text="Start Challenge" />
+            <!-- Leaderboard-knappen -->
+            <Button onAction="#myQuestClick" prefWidth="200" text="My Quest" />
+            <!-- Leaderboard-knappen -->
+            <Button onAction="#onLeaderboardClick" prefWidth="200" text="Leaderboard" />
+            <!-- Logga ut-knappen -->
+            <Button onAction="#onLogoutClick" prefWidth="200" text="Logga ut" />
+         <BorderPane.margin>
+            <Insets top="150.0" />
+         </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

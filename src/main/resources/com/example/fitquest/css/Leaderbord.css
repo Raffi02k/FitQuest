@@ -3,3 +3,7 @@
     -fx-background-image: url('../images/LeaderboardB.png');
     -fx-background-repeat: no-repeat;
 }
+
+#vboxLeaderboard {
+    -fx-background-color: white;
+}

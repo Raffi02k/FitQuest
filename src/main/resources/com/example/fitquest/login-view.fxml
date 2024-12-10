@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="LoginGridPane" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
-
-    <AnchorPane>
-        <TextField fx:id="usernameField" layoutX="116.0" layoutY="493.0" promptText="Användarnamn" />
-
-        <PasswordField fx:id="passwordField" layoutX="115.0" layoutY="539.0" promptText="Lösenord" />
-
-        <Button layoutX="158.0" layoutY="596.0" onAction="#onLoginButtonClick" text="Logga in" />
-
-        <Label fx:id="errorLabel" layoutX="70.0" layoutY="457.0"/>
-    </AnchorPane>
-
-</StackPane>
+<BorderPane fx:id="LoginGridPane" stylesheets="@css/Login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.LoginController">
+    <center>
+        <VBox alignment="CENTER" maxWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <Label fx:id="errorLabel" />
+            <TextField fx:id="usernameField" promptText="Användarnamn" />
+            <PasswordField fx:id="passwordField" promptText="Lösenord" />
+            <Button onAction="#onLoginButtonClick" text="Logga in" />
+         <BorderPane.margin>
+            <Insets top="200.0" />
+         </BorderPane.margin>
+         </VBox>
+    </center>
+</BorderPane>

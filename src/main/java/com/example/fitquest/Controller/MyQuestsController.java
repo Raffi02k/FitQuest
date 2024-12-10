@@ -1,6 +1,7 @@
 package com.example.fitquest.Controller;
 
 import com.example.fitquest.Model.Data.FQDatabase;
+import com.example.fitquest.Model.Data.User;
 import com.example.fitquest.Model.MyQuestsModel;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +31,6 @@ public class MyQuestsController {
     @FXML
     public void onMenuClick(){
         loadNewScene("/com/example/fitquest/Menu-view.fxml");
-
     }
 
     private void loadNewScene(String fxmlPath) {
@@ -71,9 +71,11 @@ public class MyQuestsController {
         int selectedIndex = myQuestsList.getSelectionModel().getSelectedIndex();
         myQuestsModel.processFinishedQuest(selectedIndex);
     }
+
     @FXML
     public void resetButtonClicked() {
         FQDatabase.getInstance().resetCurrentUser();
         myQuestsModel.setUserScore(0); // Uppdatera userScoreProperty istället för att direkt sätta texten på Label
     }
+
 }

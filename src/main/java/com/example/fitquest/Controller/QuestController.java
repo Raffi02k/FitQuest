@@ -2,11 +2,15 @@
 package com.example.fitquest.Controller;
 
 import com.example.fitquest.Model.Data.FQDatabase;
+import com.example.fitquest.Model.Data.Quest;
 import com.example.fitquest.Model.MyQuestsModel;
+import com.example.fitquest.Model.QuestsModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -15,12 +19,26 @@ import java.io.IOException;
 public class QuestController {
 
     @FXML
+    private ListView<String> questsList;
+
+    private final FQDatabase database = FQDatabase.getInstance();
+    private final MyQuestsModel myQuestsModel = MyQuestsModel.getInstance();
+
+    @FXML
     private AnchorPane QuestGridPane;
+
+    @FXML
+    public void initialize() {
+        // Lägg till alla quests from QuestModel
+        questsList.getItems().addAll(
+                QuestsModel.getInstance().getAllQuests().stream().map(Quest::getName).toList()
+        );
+        questsList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+    }
 
     @FXML
     public void onMenuClick() {
         loadNewScene("/com/example/fitquest/Menu-view.fxml");
-
     }
 
     private void loadNewScene(String fxmlPath) {
@@ -34,6 +52,16 @@ public class QuestController {
         }
     }
 
+    @FXML
     public void addToMyQuestsButtonClicked(ActionEvent actionEvent) {
+        int selectedIndex = questsList.getSelectionModel().getSelectedIndex();
+        if (selectedIndex != -1) {
+            Quest selectedQuest = QuestsModel.getInstance().getAllQuests().get(selectedIndex);
+            MyQuestsModel.getInstance().addQuest(selectedQuest);
+            System.out.println("Quest added to My Quests: " + selectedQuest.getName());
+            System.out.println(questsList.getSelectionModel().getSelectedItem());
+        } else {
+            System.out.println("No quest selected!");
+        }
     }
 }

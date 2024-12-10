@@ -21,9 +21,12 @@ public class FQDatabase {
 
 
         // Lägger till några quests i databasen
-        quests.add(new Quest("Quest1", "Quest1 description", 100));
-        quests.add(new Quest("Quest2", "Quest2 description", 200));
-        quests.add(new Quest("Quest3", "Quest3 description", 300));
+        quests.add(new Quest("1. Morning Walk", "Walk 10 km in one day", 150));
+        quests.add(new Quest("2. Push-Up Pro", "Complete 50 push-ups in a row", 200));
+        quests.add(new Quest("3. Yoga Master", "Do a 30-minute yoga session", 100));
+        quests.add(new Quest("4. Hydration Hero", "Drink 3 liters of water in a day", 50));
+        quests.add(new Quest("5. Stair Sprint", "Run up and down stairs 20 times", 120));
+        quests.add(new Quest("6. Plank Champ", "Hold a plank for 2 minutes", 180));
     }
 
     public static FQDatabase getInstance() {

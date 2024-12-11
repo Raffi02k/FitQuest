@@ -15,7 +15,8 @@ public class User {
     private String password;
     private int score;
     private List<User> friends;
-    private List<Quest> quests;
+    private List<Quest> chosenQuests;
+    private List<Quest> allAvailableQuests;
 
     public User(String username, String password) {
         id = idCounter++;
@@ -23,7 +24,8 @@ public class User {
         this.password = password;
         score = 0;
         friends = new ArrayList<>();
-        quests = new ArrayList<>();
+        chosenQuests = new ArrayList<>();
+        allAvailableQuests = FQDatabase.getInstance().getQuests();
     }
 
 
@@ -67,35 +69,43 @@ public class User {
         return friends.get(index);
     }
 
-    public List<Quest> getQuests() {
-        return quests;
+    public List<Quest> getChosenQuests() {
+        return chosenQuests;
     }
 
-    public void setQuests(List<Quest> quests) {
-        this.quests = quests;
+    public void setChosenQuests(List<Quest> chosenQuests) {
+        this.chosenQuests = chosenQuests;
     }
 
-    public boolean addQuest(Quest quest) {
-        return quests.add(quest);
+    public void addQuestToChosenQuests(Quest quest) {
+        chosenQuests.add(quest);
     }
 
-    public boolean removeQuest(Quest quest) {
-        return quests.remove(quest);
+    public boolean removeQuestFromChosenQuests(Quest quest) {
+        return chosenQuests.remove(quest);
     }
 
     public Quest getQuest(int index) {
-        return quests.get(index);
+        return chosenQuests.get(index);
+    }
+
+    public List<Quest> getAllAvailableQuests() {
+        return allAvailableQuests;
+    }
+
+    public void setAllAvailableQuests(List<Quest> allAvailableQuests) {
+        this.allAvailableQuests = allAvailableQuests;
     }
 
     public int getScore() {
         return score;
     }
 
-    public void addPointsToScore(int pointsToAdd) {
-        score = score + pointsToAdd;
+    public void setScore(int score) {
+        this.score = score;
     }
 
-    public void reset() {
-        this.score = 0;
+    public void addPointsToScore(int pointsToAdd) {
+        score = score + pointsToAdd;
     }
 }

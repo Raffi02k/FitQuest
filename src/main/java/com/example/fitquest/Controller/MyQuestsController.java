@@ -10,33 +10,31 @@ import javafx.scene.control.TextArea;
 
 public class MyQuestsController {
 
-    private MyQuestsModel myQuestsModel;
+    private final MyQuestsModel myQuestsModel = MyQuestsModel.getInstance();
     @FXML
-    private ListView<String> myQuestsList;
+    private ListView<String> myQuestsListView;
     @FXML
     private TextArea myQuestsDescriptionTextArea;
     @FXML
-    private Label myQuestsUserScore;
+    private Label myQuestsUserScoreLabel;
 
     public void initialize() {
-        myQuestsModel = MyQuestsModel.getInstance(); // Hämta singleton-instansen
-        myQuestsList.getItems().addAll(myQuestsModel.getMyQuestsNameObservableList());
+        myQuestsListView.setItems(myQuestsModel.getMyQuestsNameObservableList());
         myQuestsDescriptionTextArea.textProperty().bind(myQuestsModel.questDescriptionProperty());
-        myQuestsUserScore.textProperty().bind(myQuestsModel.userScoreProperty());
+        myQuestsUserScoreLabel.textProperty().bind(myQuestsModel.userScoreProperty());
     }
 
     public void myQuestsListClicked() {
-        int selectedIndex = myQuestsList.getSelectionModel().getSelectedIndex();
+        int selectedIndex = myQuestsListView.getSelectionModel().getSelectedIndex();
         myQuestsModel.setQuestDescription(selectedIndex);
     }
 
     public void myQuestsFinishButtonClicked() {
-        int selectedIndex = myQuestsList.getSelectionModel().getSelectedIndex();
+        int selectedIndex = myQuestsListView.getSelectionModel().getSelectedIndex();
         myQuestsModel.processFinishedQuest(selectedIndex);
     }
 
     public void resetButtonClicked() {
-        FQDatabase.getInstance().resetCurrentUser();
         myQuestsModel.setUserScore(0); // Uppdatera userScoreProperty istället för att direkt sätta texten på Label
     }
 

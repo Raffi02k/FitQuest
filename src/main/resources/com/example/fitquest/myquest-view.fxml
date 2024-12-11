@@ -8,9 +8,9 @@
 <BorderPane fx:id="MyQuestGridPane" stylesheets="@css/myquest.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitquest.Controller.MyQuestsController">
    <center>
       <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
-         <Label fx:id="myQuestsUserScore" textFill="red" />
+         <Label fx:id="myQuestsUserScoreLabel" textFill="red" />
          <Button mnemonicParsing="false" onMouseClicked="#myQuestsFinishButtonClicked" text="Quest finished" />
-         <ListView fx:id="myQuestsList" maxHeight="300.0" maxWidth="300.0" onMouseReleased="#myQuestsListClicked" />
+         <ListView fx:id="myQuestsListView" maxHeight="300.0" maxWidth="300.0" onMouseReleased="#myQuestsListClicked" />
          <TextArea fx:id="myQuestsDescriptionTextArea" maxHeight="100.0" maxWidth="300.0" />
          <BorderPane.margin>
             <Insets top="150.0" />

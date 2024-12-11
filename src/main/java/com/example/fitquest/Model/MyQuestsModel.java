@@ -12,56 +12,28 @@ import javafx.scene.control.Alert;
 public class MyQuestsModel {
 
     private static MyQuestsModel instance;
-    private final FQDatabase database;
+    private final FQDatabase database = FQDatabase.getInstance();
     private final ObservableList<String> myQuestsNameObservableList = FXCollections.observableArrayList();
     private final StringProperty questDescription = new SimpleStringProperty("");
     private final StringProperty userScore = new SimpleStringProperty("");
 
+    private MyQuestsModel() {}
+
+    public void updateMyQuestsNameObservableList(){
+        myQuestsNameObservableList.setAll(database.getCurrentUser().getChosenQuests().stream().map(Quest::getName).toList());
+    }
 
     public void setUserScore(int score) {
-        this.userScore.set("MyScore: " + score);
-    }
-
-    /**
-     * Privat konstruktor för att säkerställa att endast en instans kan skapas.
-     */
-    private MyQuestsModel() {
-        database = FQDatabase.getInstance();
-    }
-
-    public void addQuest(Quest quest) {
-        if (!myQuestsNameObservableList.contains(quest.getName())) {
-            myQuestsNameObservableList.add(quest.getName());  // Lägg till quest namnet
-            database.getCurrentUser().addQuest(quest);
-            // Kanske någon refresh?
-        }
-    }
-
-    /**
-     * Getter för singleton-instansen. Skapar instansen om den inte redan finns.
-     */
-    public static synchronized MyQuestsModel getInstance() {
-        if (instance == null) {
-            instance = new MyQuestsModel();
-        }
-        return instance;
-    }
-
-    public ObservableList<String> getMyQuestsNameObservableList() {
-        return myQuestsNameObservableList;
-    }
-
-    public StringProperty questDescriptionProperty() {
-        return questDescription;
+        database.getCurrentUser().setScore(score);
+        userScore.set("MyScore: " + database.getCurrentUser().getScore());
     }
 
     public void setQuestDescription(int selectedQuestIndex) {
-        questDescription.set(database.getCurrentUser().getQuests().get(selectedQuestIndex).getDescription());
+        questDescription.set(database.getCurrentUser().getChosenQuests().get(selectedQuestIndex).getDescription());
     }
 
-
-    public StringProperty userScoreProperty() {
-        return userScore;
+    public void resetQuestDescription() {
+        questDescription.set("");
     }
 
     /**
@@ -69,7 +41,7 @@ public class MyQuestsModel {
      */
     public void processFinishedQuest(int selectedQuestIndex) {
         User currentUser = database.getCurrentUser();
-        Quest selectedQuest = currentUser.getQuests().get(selectedQuestIndex);
+        Quest selectedQuest = currentUser.getChosenQuests().get(selectedQuestIndex);
 
         if (!selectedQuest.isCompleted()) { // Kontrollera om questen redan är klar
             int scoreToAdd = selectedQuest.getScore();
@@ -89,8 +61,24 @@ public class MyQuestsModel {
         }
     }
 
-    public void refreshMyQuestsNameObservableList(){
-        myQuestsNameObservableList.setAll(database.getCurrentUser().getQuests().stream().map(Quest::getName).toList());
+    // GETTERS
+
+    public static synchronized MyQuestsModel getInstance() {
+        if (instance == null) {
+            instance = new MyQuestsModel();
+        }
+        return instance;
     }
 
+    public ObservableList<String> getMyQuestsNameObservableList() {
+        return myQuestsNameObservableList;
+    }
+
+    public StringProperty questDescriptionProperty() {
+        return questDescription;
+    }
+
+    public StringProperty userScoreProperty() {
+        return userScore;
+    }
 }

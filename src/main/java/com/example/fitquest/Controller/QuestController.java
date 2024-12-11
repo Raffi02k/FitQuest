@@ -13,7 +13,7 @@ public class QuestController {
     private ListView<String> allQuestsNameListView;
 
     public void initialize() {
-        allQuestsNameListView.setItems(questsModel.getAllQuestsNameObservableList());
+        allQuestsNameListView.setItems(questsModel.getUserAvailableQuestsNameObservableList());
     }
 
     public void addToMyQuestsButtonClicked() {
@@ -22,14 +22,9 @@ public class QuestController {
         String selectedListName = allQuestsNameListView.getSelectionModel().getSelectedItem();
 
         if (selectedListIndex != -1) {
-            // Låt modellen addera questen till användarens questLista och uppdatera MyQuestsModel.
-            questsModel.addQuestToUsersQuestsList(selectedListName);
-
-            // Låt modellen radera quest namnet från sin allQuestsNameObservableList
-            // (ska då automatiskt uppdatera allQuestsNameListView i denna klass som styr vad som visas för användaren)
-            questsModel.removeQuestNameFromAllQuestsNameObservableList(selectedListIndex);
-
-//            allQuestsNameListView.refresh();
+            questsModel.addQuestToUsersChosenQuestsList(selectedListIndex);
+            questsModel.removeQuestFromUsersAvailableQuestsList(selectedListIndex);
+            questsModel.updateUserAvailableQuestsNameObservableList();
 
             // Visa en alert att den har blivit tillagd i myquest
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

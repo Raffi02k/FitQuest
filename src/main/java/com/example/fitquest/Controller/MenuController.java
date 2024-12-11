@@ -1,5 +1,7 @@
 package com.example.fitquest.Controller;
 
+import com.example.fitquest.Model.MyQuestsModel;
+import com.example.fitquest.Model.QuestsModel;
 import com.example.fitquest.Screen.NewScene;
 
 public class MenuController {

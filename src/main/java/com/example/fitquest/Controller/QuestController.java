@@ -5,6 +5,7 @@ import com.example.fitquest.Model.Data.FQDatabase;
 import com.example.fitquest.Model.Data.Quest;
 import com.example.fitquest.Model.MyQuestsModel;
 import com.example.fitquest.Model.QuestsModel;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +22,8 @@ public class QuestController {
 
     @FXML
     private ListView<String> questsList;
+    @FXML
+    private ListView<String> uniqueQuestList;
 
     private final FQDatabase database = FQDatabase.getInstance();
     private final MyQuestsModel myQuestsModel = MyQuestsModel.getInstance();
@@ -30,11 +33,16 @@ public class QuestController {
 
     @FXML
     public void initialize() {
-        // Lägg till alla quests from QuestModel
-        questsList.getItems().addAll(
-                QuestsModel.getInstance().getAllQuests().stream().map(Quest::getName).toList()
-        );
-        questsList.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        // Populate questsList with all quests
+        populateListView(questsList, QuestsModel.getInstance().getAllQuests());
+
+        // Populate uniqueQuestList with unique quests
+        populateListView(uniqueQuestList, QuestsModel.getInstance().getUniqueQuests());
+    }
+
+    private void populateListView(ListView<String> listView, ObservableList<Quest> quests) {
+        listView.getItems().addAll(quests.stream().map(Quest::getName).toList());
+        listView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
     }
 
     @FXML
@@ -55,6 +63,7 @@ public class QuestController {
 
     @FXML
     public void addToMyQuestsButtonClicked(ActionEvent actionEvent) {
+        // Handle selection from questsList
         int selectedIndex = questsList.getSelectionModel().getSelectedIndex();
         if (selectedIndex != -1) {
             Quest selectedQuest = QuestsModel.getInstance().getAllQuests().get(selectedIndex);
@@ -62,20 +71,44 @@ public class QuestController {
             MyQuestsModel.getInstance().addQuest(selectedQuest);
             System.out.println("Quest added to My Quests: " + selectedQuest.getName());
 
-            // Ta bort questen när man har valt den
+            // Remove the selected quest
             QuestsModel.getInstance().getAllQuests().remove(selectedIndex);
             questsList.getItems().remove(selectedIndex);
 
             questsList.refresh();
 
-            // Visa en alert att den har blivit tillagd i myquest
+            // Show success alert
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Quest Added");
             alert.setHeaderText(null);
             alert.setContentText("The quest " + selectedQuest.getName() + " has been added to your quests!");
-            alert.showAndWait(); // Show the alert and wait for the user to close it
+            alert.showAndWait();
         } else {
-            System.out.println("No quest selected!");
+            System.out.println("No quest selected in questsList!");
+        }
+
+        // Handle selection from uniqueQuestList
+        int uniqueSelectedIndex = uniqueQuestList.getSelectionModel().getSelectedIndex();
+        if (uniqueSelectedIndex != -1) {
+            Quest selectedUniqueQuest = QuestsModel.getInstance().getUniqueQuests().get(uniqueSelectedIndex);
+
+            MyQuestsModel.getInstance().addQuest(selectedUniqueQuest);
+            System.out.println("Unique Quest added to My Quests: " + selectedUniqueQuest.getName());
+
+            // Remove the selected unique quest
+            QuestsModel.getInstance().getUniqueQuests().remove(uniqueSelectedIndex);
+            uniqueQuestList.getItems().remove(uniqueSelectedIndex);
+
+            uniqueQuestList.refresh();
+
+            // Show success alert
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Unique Quest Added");
+            alert.setHeaderText(null);
+            alert.setContentText("The unique quest " + selectedUniqueQuest.getName() + " has been added to your quests!");
+            alert.showAndWait();
+        } else {
+            System.out.println("No quest selected in uniqueQuestList!");
         }
     }
 }
